@@ -20,12 +20,12 @@ RUN \
   tar xf /tmp/moniwiki-1.2.5.tgz &&\
   rm -rf /var/www/html/* &&\
   mv moniwiki/* /var/www/html/ &&\
-  mkdir -p /var/www/html/moniwiki/data/text &&\
-  mv /var/www/html/moniwiki/wikiseed/ko/* /var/www/html/moniwiki/data/text &&\
-  chown -R www-data:www-data /var/www/html/moniwiki &&\
-  chmod 777 -R /var/www/html/moniwiki/data/ /var/www/html/moniwiki/ &&\
-  chmod +x /var/www/html/moniwiki/secure.sh &&\
-  /var/www/html/moniwiki/secure.sh
+  mkdir -p /var/www/html/data/text &&\
+  mv /var/www/html/wikiseed/ko/* /var/www/html/data/text &&\
+  chown -R www-data:www-data /var/www/html/* &&\
+  chmod 777 -R /var/www/html/data/ /var/www/html/ &&\
+  chmod +x /var/www/html/secure.sh &&\
+  /var/www/html/secure.sh
 
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
