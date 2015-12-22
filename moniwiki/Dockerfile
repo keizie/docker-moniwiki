@@ -9,17 +9,21 @@ RUN \
 # Install php5 and apache2
 RUN \
   apt-get -qq -y install apache2 php5 libapache2-mod-php5 &&\
-  a2enmod rewrite 
+  a2enmod rewrite
 
 # Install Moniwiki
 WORKDIR /tmp
 # Github Version is no wikiseed (use, naver's version)
+# or wikiseed from https://github.com/wkpark/moniwiki-wikiseed/archive/master.zip
 RUN \
   curl -L -O http://dev.naver.com/frs/download.php/11750/moniwiki-1.2.5.tgz &&\
   tar xf /tmp/moniwiki-1.2.5.tgz &&\
-  mv moniwiki /var/www/html/ &&\
+  rm -rf /var/www/html/* &&\
+  mv moniwiki/* /var/www/html/ &&\
+  mkdir -p /var/www/html/moniwiki/data/text &&\
+  mv /var/www/html/moniwiki/wikiseed/ko/* /var/www/html/moniwiki/data/text &&\
   chown -R www-data:www-data /var/www/html/moniwiki &&\
-  chmod 777 /var/www/html/moniwiki/data/ /var/www/html/moniwiki/ &&\
+  chmod 777 -R /var/www/html/moniwiki/data/ /var/www/html/moniwiki/ &&\
   chmod +x /var/www/html/moniwiki/secure.sh &&\
   /var/www/html/moniwiki/secure.sh
 
