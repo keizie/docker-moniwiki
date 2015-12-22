@@ -2,35 +2,37 @@
 
 This is Dockerfile for building
 [moniwiki](http://dev.naver.com/projects/moniwiki/) application
-image. This Dockerfile based on Moniwiki 1.2.1.
+image. This Dockerfile based on Moniwiki 1.2.5.
 
 # Building Dockerfile
 
 1. Clone this repository.
 
 ```sh
-$ git clone https://github.com/nacyot/docker-moniwiki.git
+$ git clone https://github.com/ziozzang/docker-moniwiki.git
 $ cd docker-moniwiki
 ```
 
 1. Building image from Dockerfile.
 
 ```sh
-$ docker build -t nacyot/moniwiki .
+$ docker build -t ziozzang/moniwiki .
 ```
 
 # Starting Server
 
 ```
-$ docker run -d -p <PUBLIC_PORT>:80 nacyot/moniwiki
+$ docker run -d -p <PUBLIC_PORT>:80 ziozzang/moniwiki
 ```
 
 Replace `<PUBLIC_PORT>` with the number. You can access your Moniwiki
-application on `http://127.0.0.1:<PUBLIC_PORT>/moniwiki`
+application on `http://127.0.0.1:<PUBLIC_PORT>/`
 
 # Installing Moniwiki
+`http://127.0.0.1:<PUBLIC_PORT>/`
 
-`http://127.0.0.1:<PUBLIC_PORT>/moniwiki`
+# Setup Moniwiki
+`http://127.0.0.1:<PUBLIC_PORT>/monisetup.php`
 
 # Setting up Nginx Proxy
 
@@ -52,7 +54,8 @@ server {
 ```
 
 # Author
-Daekwon Kim(nacyot) <propellerheaven@gmail.com>.
+Original docker container forked from Daekwon Kim(nacyot) <propellerheaven@gmail.com>.
+Modification by Jioh L. Jung(ziozzang) <ziozzang@gmail.com>
 
 # License
 The MIT License (MIT)
