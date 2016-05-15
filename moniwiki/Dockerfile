@@ -27,6 +27,9 @@ RUN \
   chmod +x /var/www/html/secure.sh &&\
   /var/www/html/secure.sh
 
+VOLUME /var/www/html/data
+VOLUME /var/www/html/pds
+
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
